@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
-const genAI = new GoogleGenerativeAI("AIzaSyABfvcBTGUWmOI7aD03hWLTR761fW6cmcc");
+const genAI = new GoogleGenerativeAI("AIzaSyBBm2aTU0Le0nFQykj_hbirRhNCW73Yl4g");
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 export default function SummaryPage() {
@@ -19,7 +19,7 @@ export default function SummaryPage() {
     const result = await model.generateContent(transcript+" give me the important points in seperate lines");
     const botReply = await result.response.text();
     console.log(botReply);
-    botReply.replace("**","\n")
+    botReply.replace("","\n")
     setSummary(botReply);
   }
 }
@@ -118,6 +118,6 @@ export default function SummaryPage() {
           <p className="text-gray-300">{summary}</p>
         </motion.div>
       )}
-    </div>
-  );
+    </div>
+ );
 }

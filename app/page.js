@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ChatBot from './chat/ChatBot';
 import { motion } from 'framer-motion';
 const subjects = [
   { id: 'physics', name: 'PHYSICS', icon: '⚛', color: '#00f3ff' },
@@ -9,9 +10,11 @@ const subjects = [
   { id: 'maths', name: 'MATHEMATICS', icon: '📐', color: '#ff00aa' },
 ];
 export default function Home() {
+  
 
   const [loadingProgress, setLoadingProgress] = useState(0);
   useEffect(() => {
+    
     const timer = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
@@ -254,10 +257,11 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                
+                <Link href="/summary">
                 <button className="w-full py-2 rounded-md text-sm font-medium bg-pink-500/20 text-pink-400 hover:bg-pink-500/40 transition-colors">
                   VIEW ALL SUMMARIES
                 </button>
+                </Link>
               </div>
             </div>
           </div>
